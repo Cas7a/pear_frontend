@@ -1,0 +1,16 @@
+export const artistNames = [
+  "Taylor Swift",
+  "Kanye West",
+  "Kid Cudi",
+  "Travis Scott",
+  "Bad Bunny",
+  "Drake",
+  "Jay Z",
+  "The Weeknd",
+  "Eminem",
+  "Ed Sheeran",
+  "Post Maloen",
+  "JID",
+  "Juice WRLD",
+  "Beyoncé",
+];
