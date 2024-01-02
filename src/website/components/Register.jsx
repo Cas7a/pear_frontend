@@ -7,13 +7,18 @@ const Register = () => {
 
   const USER_TOKEN = userData.token;
 
-  const [data, setData] = useState({ username: "", email: "", password: "" });
+  const [data, setData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
   const [registerSuccess, setRegisterSuccess] = useState(false);
 
   const navigate = useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
+    console.log("actions.register se refiere a:", actions.register);
 
     const registerResult = await actions.register(
       data.username,
@@ -24,7 +29,8 @@ const Register = () => {
     if (registerResult) {
       setRegisterSuccess(true);
       navigate("/player");
-      window.location.reload();
+      console.log("Success");
+      // window.location.reload();
     }
   };
 
@@ -117,7 +123,11 @@ const Register = () => {
               </div>
 
               <div className="text-center">
-                <button className="btn_login px-14 py-2" type="submit">
+                <button
+                  className="btn_login px-14 py-2"
+                  onClick={submit}
+                  aria-label="register"
+                >
                   <span className="text-sm font-bold lg:px-6 lg:text-base">
                     Register
                   </span>

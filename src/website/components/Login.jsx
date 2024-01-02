@@ -3,7 +3,8 @@ import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
+Modal.setAppElement(document.createElement("div"));
 
 const Login = ({ isOpen, onClose }) => {
   const { actions, loginError } = useContext(AuthContext);
@@ -33,7 +34,7 @@ const Login = ({ isOpen, onClose }) => {
 
   return (
     <Modal
-      isOpen={isOpen}
+      isOpen={true}
       onRequestClose={onClose}
       contentLabel="Login Pop up"
       className="login w-96 h-96 absolute max-md:top-0 max-md:left-0 max-md:right-0 max-md:bottom-0 max-md:m-auto md:top-24 md:right-8 max-w-full  rounded-xl pt-8"
@@ -50,10 +51,12 @@ const Login = ({ isOpen, onClose }) => {
         <h1 className=" text-center">Login</h1>
         <div className="mt-6 w-[73%] mx-auto text-sm">
           <label htmlFor="username">
-            <h1>Username</h1>
+            <span>username</span>
           </label>
+
           <input
             id="username"
+            name="username"
             type="text"
             autoFocus
             required
@@ -67,11 +70,12 @@ const Login = ({ isOpen, onClose }) => {
 
         <div className="mt-4 w-[73%] mx-auto h-[90px] text-sm">
           <label htmlFor="password">
-            <h1>Password</h1>
+            <span>password</span>
           </label>
           <input
             id="password"
             type="password"
+            name="password"
             required
             value={data.password}
             onChange={(e) => handler(e)}
@@ -83,7 +87,8 @@ const Login = ({ isOpen, onClose }) => {
         </div>
 
         <button
-          type="submit"
+          onClick={submit}
+          aria-label="login"
           className="btn_login mt-5 mb-4 px-16 py-3 font-medium block mx-auto text-black"
         >
           <span>Login</span>

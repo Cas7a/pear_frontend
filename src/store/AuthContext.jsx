@@ -11,7 +11,6 @@ const authReducer = (state, action) => {
       sessionStorage.setItem("token", action.payload.access_token);
       sessionStorage.setItem("tokenExp", action.payload.token_exp);
       sessionStorage.setItem("username", action.payload.username);
-
       sessionStorage.setItem("refreshToken", action.payload.refresh_token);
 
       return {
