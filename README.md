@@ -13,4 +13,3 @@ Sample data (type on search bar)
 
 --------------------------------
 
-🔴Live demo: https://pear--project.vercel.app/
